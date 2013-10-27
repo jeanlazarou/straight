@@ -31,18 +31,18 @@ public class InsertRowsTest extends HashDatabaseTestCase
     {
         Statement stmt = conn.createStatement();
 
-        stmt.executeUpdate("INSERT INTO persons (1, 'LName1', 'FName1', 1)");
-        stmt.executeUpdate("INSERT INTO persons (2, 'LName2', 'FName2', 1)");
-        stmt.executeUpdate("INSERT INTO persons (3, 'LName3', 'FName3', 1)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (1, 'LName1', 'FName1', 1)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (2, 'LName2', 'FName2', 1)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (3, 'LName3', 'FName3', 1)");
     }
 
     public void testInsertRowsAndCheck() throws SQLException
     {
         Statement stmt = conn.createStatement();
 
-        stmt.executeUpdate("INSERT INTO persons (1, 'LName1', 'FName1', 1)");
-        stmt.executeUpdate("INSERT INTO persons (2, 'LName2', 'FName2', 1)");
-        stmt.executeUpdate("INSERT INTO persons (3, 'LName3', 'FName3', 1)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (1, 'LName1', 'FName1', 1)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (2, 'LName2', 'FName2', 1)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (3, 'LName3', 'FName3', 1)");
 
         ResultSet rs = stmt.executeQuery("SELECT * FROM persons");
 

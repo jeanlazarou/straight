@@ -69,7 +69,7 @@ public class TestInsert extends HashDatabaseTestCase {
 
 	private void insert(String value) throws Exception {
 		stmt = conn.createStatement();
-		stmt.executeUpdate("INSERT INTO test (" + value + ")");
+		stmt.executeUpdate("INSERT INTO test VALUES (" + value + ")");
 	}
 
 	public void verify(String expected) throws Exception {

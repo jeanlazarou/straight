@@ -7,6 +7,7 @@ package com.ap.straight;
 import java.sql.*;
 
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class HashDriver implements Driver
 {
@@ -62,4 +63,9 @@ public class HashDriver implements Driver
     {
         return false;
     }
+
+    public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+        throw new SQLFeatureNotSupportedException();
+    }
+
 }

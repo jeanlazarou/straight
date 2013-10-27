@@ -119,5 +119,15 @@ public class MemoryResultSetMetaData implements ResultSetMetaData {
         return columns[column - 1].getColumnClassName();
     }
 
+    //----------------------- interface Wrapper ----------------------------------------
+
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+        throw new SQLException();
+    }
+
+    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+        return false;
+    }
+
     ColumnMetaData[] columns;
 }

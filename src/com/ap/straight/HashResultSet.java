@@ -15,7 +15,9 @@ import java.util.Map;
 import java.util.Calendar;
 import java.util.Iterator;
 
-public class HashResultSet implements ResultSet
+import com.ap.straight.unsupported.AbstractResultSet;
+
+public class HashResultSet extends AbstractResultSet
 {
     Column fields[];
     HashTable table;
@@ -26,7 +28,7 @@ public class HashResultSet implements ResultSet
     int position = 0;
     int currentIndex = -1;
     boolean nextCalled = false;
-    boolean lastValuetWasNull = false;
+    boolean lastValueWasNull = false;
 
     public HashResultSet(Statement stmt, Iterator col, HashTable table, Column fields[])
     {
@@ -64,7 +66,7 @@ public class HashResultSet implements ResultSet
 
     public boolean wasNull() throws SQLException
     {
-        return lastValuetWasNull;
+        return lastValueWasNull;
     }
 
     public String getString(int columnIndex) throws SQLException
@@ -700,7 +702,7 @@ public class HashResultSet implements ResultSet
     {
         if (o == null)
         {
-            lastValuetWasNull = true;
+            lastValueWasNull = true;
 
             return "";
         }
@@ -714,7 +716,7 @@ public class HashResultSet implements ResultSet
     {
         if (o == null)
         {
-            lastValuetWasNull = true;
+            lastValueWasNull = true;
 
             return 0;
         }
@@ -733,7 +735,7 @@ public class HashResultSet implements ResultSet
 	private Date convertToDate(Object o) {
 
 		if (o == null) {
-			lastValuetWasNull = true;
+			lastValueWasNull = true;
 			return null;
 		} else if (o instanceof Date) {
 			return (Date) o;
@@ -814,5 +816,15 @@ public class HashResultSet implements ResultSet
 	public void updateRef(String columnName, Ref x) throws SQLException {
 		throw new UnsupportedOperationException();
 	}
-	
+
+    //----------------------- interface Wrapper ----------------------------------------
+
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+        throw new SQLException();
+    }
+
+    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+        return false;
+    }
+
 }

@@ -72,17 +72,17 @@ public class HashDatabaseTestCase extends TestCase
     {
         Statement stmt = conn.createStatement();
 
-        stmt.executeUpdate("INSERT INTO persons (1, 'LName1', 'FName1', 1)");
-        stmt.executeUpdate("INSERT INTO persons (2, 'LName2', 'FName2', 2)");
-        stmt.executeUpdate("INSERT INTO persons (3, 'LName3', 'FName3', 2)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (1, 'LName1', 'FName1', 1)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (2, 'LName2', 'FName2', 2)");
+        stmt.executeUpdate("INSERT INTO persons VALUES (3, 'LName3', 'FName3', 2)");
     }
 
     public void insertCountries () throws SQLException
     {
         Statement stmt = conn.createStatement();
 
-        stmt.executeUpdate("INSERT INTO countries (1, 'Country1')");
-        stmt.executeUpdate("INSERT INTO countries (2, 'Country2')");
-        stmt.executeUpdate("INSERT INTO countries (3, 'Country3')");
+        stmt.executeUpdate("INSERT INTO countries VALUES (1, 'Country1')");
+        stmt.executeUpdate("INSERT INTO countries VALUES (2, 'Country2')");
+        stmt.executeUpdate("INSERT INTO countries VALUES (3, 'Country3')");
     }
 }

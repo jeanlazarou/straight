@@ -344,7 +344,7 @@ public class SelectTestCase extends HashDatabaseTestCase {
 			
 			sql.setLength(0);
 			
-			sql.append("insert into test (");
+			sql.append("insert into test values (");
 			
 			for (int j = 0; j < data.length; j++) {
 

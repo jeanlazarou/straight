@@ -24,7 +24,7 @@ public class PreparedInsertRowsTest extends HashDatabaseTestCase
 
     public void testInsertRows() throws SQLException
     {
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO persons (?, ?, ?, ?)");
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO persons VALUES (?, ?, ?, ?)");
 
 		stmt.setInt(1, 1);
 		stmt.setString(2, "LName1");

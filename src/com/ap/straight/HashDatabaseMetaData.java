@@ -1,15 +1,16 @@
 /*
  * @author: Jean Lazarou
- * @date: 24 févr. 04
+ * @date: 24 fï¿½vr. 04
  */
 package com.ap.straight;
 
+import com.ap.straight.unsupported.AbstractDatabaseMetaData;
+
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class HashDatabaseMetaData implements DatabaseMetaData {
+public class HashDatabaseMetaData extends AbstractDatabaseMetaData {
 	
 	String dbURL;
 	
@@ -640,68 +641,14 @@ public class HashDatabaseMetaData implements DatabaseMetaData {
 		return null;
 	}
 
-	public int getDatabaseMajorVersion() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
+    //----------------------- interface Wrapper ----------------------------------------
 
-	public int getDatabaseMinorVersion() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+        throw new SQLException();
+    }
 
-	public int getJDBCMajorVersion() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
+    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+        return false;
+    }
 
-	public int getJDBCMinorVersion() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public int getResultSetHoldability() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public int getSQLStateType() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean locatorsUpdateCopy() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean supportsGetGeneratedKeys() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean supportsMultipleOpenResults() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean supportsNamedParameters() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean supportsSavepoints() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean supportsStatementPooling() throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean supportsResultSetHoldability(int holdability) throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public ResultSet getSuperTables(String catalog, String schemaPattern, String tableNamePattern) throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public ResultSet getSuperTypes(String catalog, String schemaPattern, String typeNamePattern) throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-
-	public ResultSet getAttributes(String catalog, String schemaPattern, String typeNamePattern, String attributeNamePattern) throws SQLException {
-		throw new UnsupportedOperationException();
-	}
-	
 }
